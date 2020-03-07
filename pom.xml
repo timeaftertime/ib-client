@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.milai</groupId>
+	<artifactId>ib-client</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<ib.version>0.0.1-SNAPSHOT</ib.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>cn.milai</groupId>
+			<artifactId>ib-core</artifactId>
+			<version>${ib.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-all</artifactId>
+			<version>4.1.31.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.protobuf</groupId>
+			<artifactId>protobuf-java</artifactId>
+			<version>3.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.54</version>
+		</dependency>
+	</dependencies>
+</project>
