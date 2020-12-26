@@ -1,8 +1,8 @@
-package cn.milai.ib.client.socket;
+package cn.milai.ib.mode.client.socket;
 
 import java.util.List;
 
-import cn.milai.ib.client.Network.Message;
+import cn.milai.ib.mode.client.Network.Message;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;

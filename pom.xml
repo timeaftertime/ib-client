@@ -6,7 +6,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<ib.version>0.0.1-SNAPSHOT</ib.version>
+		<ib.version>1.0.1-SNAPSHOT</ib.version>
+		<beginning.version>0.0.1-SNAPSHOT</beginning.version>
 	</properties>
 
 	<dependencies>
@@ -16,19 +17,34 @@
 			<version>${ib.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>cn.milai</groupId>
+			<artifactId>beginning-api</artifactId>
+			<version>${beginning.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.milai</groupId>
+			<artifactId>beginning-util</artifactId>
+			<version>${beginning.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-all</artifactId>
-			<version>4.1.31.Final</version>
+			<version>4.1.55.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
-			<version>3.8.0</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.54</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.13</version>
 		</dependency>
 	</dependencies>
 </project>

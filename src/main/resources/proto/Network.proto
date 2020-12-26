@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package cn.milai.ib.client;
+package cn.milai.ib.mode.client;
 
 message Message {
 	enum MessageType {

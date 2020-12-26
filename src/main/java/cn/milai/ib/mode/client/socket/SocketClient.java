@@ -1,4 +1,4 @@
-package cn.milai.ib.client.socket;
+package cn.milai.ib.mode.client.socket;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;

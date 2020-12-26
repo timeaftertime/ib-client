@@ -1,17 +1,19 @@
-package cn.milai.ib.client.mode;
+package cn.milai.ib.mode.client;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import cn.milai.ib.client.form.LoginForm;
 import cn.milai.ib.mode.GameMode;
+import cn.milai.ib.mode.client.ui.form.LoginForm;
 
 /**
  * 联网游戏模式
  * 2020.01.25
  * @author milai
  */
+@Order
 @Component
-public class OnlineMode extends Thread implements GameMode {
+public class ClientMode extends Thread implements GameMode {
 
 	@Override
 	public void run() {
