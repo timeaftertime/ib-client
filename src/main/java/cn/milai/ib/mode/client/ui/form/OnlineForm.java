@@ -2,6 +2,8 @@ package cn.milai.ib.mode.client.ui.form;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.AbstractListModel;
 import javax.swing.JFrame;
@@ -9,10 +11,16 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
-import cn.milai.ib.mode.client.socket.SocketClient;
-import cn.milai.ib.mode.client.socket.Sockets;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import cn.milai.ib.IBCore;
+import cn.milai.ib.mode.client.IBClientException;
+import cn.milai.nexus.NexusClient;
 
 public class OnlineForm extends JFrame {
+
+	private static final Logger LOG = LoggerFactory.getLogger(OnlineForm.class);
 
 	/**
 	 * 
@@ -22,18 +30,32 @@ public class OnlineForm extends JFrame {
 	private static final int WIDTH = 360;
 	private static final int HEIGHT = 840;
 
-	private SocketClient socketClient;
+	private NexusClient nexusClient = IBCore.getBean(NexusClient.class);
 
-	public OnlineForm(String token) {
+	public OnlineForm() {
 		init();
-		socketClient = Sockets.newSocketClient(token);
-		socketClient.start();
 	}
 
 	private void init() {
+		LOG.info("连接服务器...");
+		try {
+			nexusClient.connect().sync();
+		} catch (InterruptedException e) {
+			nexusClient.shutdown();
+			throw new IBClientException(e);
+		}
+		LOG.info("成功连接到服务器");
 		setSize(WIDTH, HEIGHT);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosed(WindowEvent e) {
+				LOG.info("断开连接...");
+				nexusClient.shutdown();
+				LOG.info("成功断开连接");
+			}
+		});
 
 		// TODO
 		//		int lableNum = 0;

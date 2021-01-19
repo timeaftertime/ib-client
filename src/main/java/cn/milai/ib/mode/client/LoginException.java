@@ -1,6 +1,4 @@
-package cn.milai.ib.mode.client.http;
-
-import cn.milai.ib.mode.client.IBClientException;
+package cn.milai.ib.mode.client;
 
 /**
  * 登录时遇到的异常

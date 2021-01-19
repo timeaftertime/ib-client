@@ -25,9 +25,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import cn.milai.common.util.Strings;
-import cn.milai.ib.mode.client.http.Https;
-import cn.milai.ib.mode.client.http.LoginException;
-import cn.milai.ib.mode.client.http.RegisterException;
+import cn.milai.ib.mode.client.Https;
+import cn.milai.ib.mode.client.LoginException;
 
 /**
  * 登录注册界面
@@ -78,20 +77,13 @@ public class LoginForm extends JFrame {
 		}
 
 		@Override
-		public void checkValidate() {
-			String username = username();
-			if (!Strings.lenRange(username, 1, USERNAME_MAX_LEN)) {
-				throw new LoginException("用户名长度必须为 1~%d", USERNAME_MAX_LEN);
-			}
-			String password = password();
-			if (!Strings.lenRange(password, 1, PASSWORD_MAX_LEN)) {
-				throw new LoginException("密码长度必须为 1~%d", PASSWORD_MAX_LEN);
-			}
+		public void submit() {
+			Https.login(username(), password());
 		}
 
 		@Override
-		public String submit() {
-			return Https.login(username(), password());
+		public void checkValidate() {
+			LoginForm.this.checkValidate();
 		}
 
 	};
@@ -118,20 +110,13 @@ public class LoginForm extends JFrame {
 		}
 
 		@Override
-		public void checkValidate() {
-			String username = jtfUsername.getText();
-			if (!Strings.lenRange(username, 1, USERNAME_MAX_LEN)) {
-				throw new RegisterException("用户名长度必须为 1~%d", USERNAME_MAX_LEN);
-			}
-			String password = new String(jtfPassword.getPassword());
-			if (!Strings.lenRange(password, 1, PASSWORD_MAX_LEN)) {
-				throw new RegisterException("密码长度必须为 1~%d", PASSWORD_MAX_LEN);
-			}
+		public void submit() {
+			Https.register(username(), password());
 		}
 
 		@Override
-		public String submit() {
-			return Https.register(username(), password());
+		public void checkValidate() {
+			LoginForm.this.checkValidate();
 		}
 	};
 
@@ -229,7 +214,7 @@ public class LoginForm extends JFrame {
 	private void submit(ActionEvent e) {
 		try {
 			action.checkValidate();
-		} catch (RegisterException | LoginException ex) {
+		} catch (LoginException ex) {
 			JOptionPane.showMessageDialog(this, ex.getMessage());
 			return;
 		}
@@ -238,12 +223,12 @@ public class LoginForm extends JFrame {
 		submit.setText(action.submittingText());
 		SwingUtilities.invokeLater(() -> {
 			try {
-				String token = action.submit();
+				action.submit();
 				dispose();
 				SwingUtilities.invokeLater(() -> {
-					new OnlineForm(token);
+					new OnlineForm();
 				});
-			} catch (LoginException | RegisterException ex) {
+			} catch (LoginException ex) {
 				LOG.warn("username = {}, {}", username(), ExceptionUtils.getStackFrames(ex));
 				JOptionPane.showMessageDialog(LoginForm.this, ex.getMessage());
 			} finally {
@@ -252,6 +237,15 @@ public class LoginForm extends JFrame {
 		});
 		actionSwitch.setEnabled(true);
 		submit.setEnabled(true);
+	}
+
+	public void checkValidate() {
+		if (!Strings.lenRange(username(), 1, USERNAME_MAX_LEN)) {
+			throw new LoginException("用户名长度必须为 1~%d", USERNAME_MAX_LEN);
+		}
+		if (!Strings.lenRange(password(), 1, PASSWORD_MAX_LEN)) {
+			throw new LoginException("密码长度必须为 1~%d", PASSWORD_MAX_LEN);
+		}
 	}
 
 	private interface Action {
@@ -263,9 +257,9 @@ public class LoginForm extends JFrame {
 
 		String switchText();
 
-		void checkValidate() throws LoginException, RegisterException;
+		void checkValidate() throws LoginException;
 
-		String submit() throws LoginException, RegisterException;
+		void submit() throws LoginException;
 	}
 
 }

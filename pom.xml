@@ -8,6 +8,8 @@
 	<properties>
 		<ib.version>1.0.1-SNAPSHOT</ib.version>
 		<beginning.version>0.0.1-SNAPSHOT</beginning.version>
+		<nexus.version>0.0.1-SNAPSHOT</nexus.version>
+		<ib.server.version>0.0.1-SNAPSHOT</ib.server.version>
 	</properties>
 
 	<dependencies>
@@ -23,28 +25,13 @@
 		</dependency>
 		<dependency>
 			<groupId>cn.milai</groupId>
-			<artifactId>beginning-util</artifactId>
-			<version>${beginning.version}</version>
+			<artifactId>nexus-core</artifactId>
+			<version>${nexus.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>io.netty</groupId>
-			<artifactId>netty-all</artifactId>
-			<version>4.1.55.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.protobuf</groupId>
-			<artifactId>protobuf-java</artifactId>
-			<version>3.14.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>1.2.54</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.5.13</version>
+			<groupId>cn.milai</groupId>
+			<artifactId>ib-server-client</artifactId>
+			<version>${ib.server.version}</version>
 		</dependency>
 	</dependencies>
 </project>
