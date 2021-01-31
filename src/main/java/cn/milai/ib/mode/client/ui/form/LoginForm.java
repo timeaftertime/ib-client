@@ -24,7 +24,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import cn.milai.common.util.Strings;
+import cn.milai.common.base.Strings;
 import cn.milai.ib.mode.client.Https;
 import cn.milai.ib.mode.client.LoginException;
 
