@@ -19,7 +19,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Charsets;
 
-import cn.milai.common.api.Resp;
+import cn.milai.common.decoupling.Resp;
 import cn.milai.ib.IBCore;
 import cn.milai.ibserver.service.dto.LoginResp;
 

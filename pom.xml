@@ -7,7 +7,6 @@
 
 	<properties>
 		<ib.version>1.0.3-SNAPSHOT</ib.version>
-		<beginning.version>0.0.2-SNAPSHOT</beginning.version>
 		<nexus.version>0.0.2-SNAPSHOT</nexus.version>
 		<ib.server.version>0.0.1-SNAPSHOT</ib.server.version>
 	</properties>
@@ -17,11 +16,6 @@
 			<groupId>cn.milai</groupId>
 			<artifactId>ib-core</artifactId>
 			<version>${ib.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>cn.milai</groupId>
-			<artifactId>beginning-api</artifactId>
-			<version>${beginning.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>cn.milai</groupId>
