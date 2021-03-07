@@ -78,6 +78,7 @@ public class OnlineForm extends JFrame {
 		setVisible(true);
 	}
 
+	@SuppressWarnings("unused")
 	private class ResetableListModel<E> extends AbstractListModel<E> {
 
 		/**
@@ -98,9 +99,7 @@ public class OnlineForm extends JFrame {
 		}
 
 		@Override
-		public int getSize() {
-			return element.length;
-		}
+		public int getSize() { return element.length; }
 
 		@SuppressWarnings("unchecked")
 		@Override
@@ -109,6 +108,7 @@ public class OnlineForm extends JFrame {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private class MyCellRenderer implements ListCellRenderer<JLabel> {
 
 		@Override

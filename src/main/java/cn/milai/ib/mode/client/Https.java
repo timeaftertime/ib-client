@@ -2,6 +2,7 @@ package cn.milai.ib.mode.client;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 import org.apache.http.HttpEntity;
@@ -17,7 +18,6 @@ import org.apache.http.util.EntityUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.google.common.base.Charsets;
 
 import cn.milai.common.decoupling.Resp;
 import cn.milai.ib.IBCore;
@@ -48,7 +48,7 @@ public class Https {
 	/**
 	 * 请求与响应编码
 	 */
-	private static final Charset CHARSET = Charsets.UTF_8;
+	private static final Charset CHARSET = StandardCharsets.UTF_8;
 
 	private static Clients clients = IBCore.getBean(Clients.class);
 
