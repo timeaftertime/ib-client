@@ -6,8 +6,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<ib.version>1.0.3-SNAPSHOT</ib.version>
-		<nexus.version>0.0.2-SNAPSHOT</nexus.version>
+		<ib.version>1.0.4-SNAPSHOT</ib.version>
+		<nexus.version>0.0.3-SNAPSHOT</nexus.version>
 		<ib.server.version>0.0.1-SNAPSHOT</ib.server.version>
 	</properties>
 

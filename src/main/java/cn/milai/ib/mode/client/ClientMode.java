@@ -3,7 +3,7 @@ package cn.milai.ib.mode.client;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import cn.milai.ib.mode.GameMode;
+import cn.milai.ib.mode.AbstractGameMode;
 import cn.milai.ib.mode.client.ui.form.LoginForm;
 import cn.milai.nexus.EnableNexus;
 
@@ -15,7 +15,7 @@ import cn.milai.nexus.EnableNexus;
 @Order
 @Component
 @EnableNexus
-public class ClientMode extends Thread implements GameMode {
+public class ClientMode extends AbstractGameMode {
 
 	@Override
 	public void run() {
@@ -27,7 +27,4 @@ public class ClientMode extends Thread implements GameMode {
 		return "联机模式";
 	}
 
-	@Override
-	public void init() {
-	}
 }

@@ -18,6 +18,10 @@ import cn.milai.ib.IBCore;
 import cn.milai.ib.mode.client.IBClientException;
 import cn.milai.nexus.NexusClient;
 
+/**
+ * 在线窗口
+ * @author milai
+ */
 public class OnlineForm extends JFrame {
 
 	private static final Logger LOG = LoggerFactory.getLogger(OnlineForm.class);
